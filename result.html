@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with value</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="wrap">
+        <h1>DATA MANAGEMENT</h1>
+        <table id="DATA" style="border: 1px border; border-collapse: collapse;">
+            <thead>
+                <tr>
+                   <!--  <td>N°</td> -->
+                    <td>Products</td>
+                    <td>NumberOfproductchoose</td>
+                    <td>ValueOfProduct</td>
+                    <td>Totalprice</td>
+                </tr>
+            </th>
+            <tbody>
+        
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let tableSaved = localStorage.getItem('tabProduct');
+        let tableSavedObject = JSON.parse(tableSaved);
+        alert(tableSaved);
+        console.log(tableSaved)
+        let tbody =document.querySelector('#DATA');
+        function affichage(tableSaved){
+        tableSaved.forEach(function(element,index,tableSaved) {
+        
+        let newtr = document.createAttribute('tr');
+        let celluleproduct =document.createElement('td');
+        celluleproduct.textContent=productName;
+        newtr.appendChild(celluleproduct);
+        
+        let celluleNumberOfproductchoose =document.createElement('td');
+        celluleNumberOfproductchoose.textContent=quantity;
+        newtr.appendChild(celluleNumberOfproductchoose);
+
+        let celluleValueOfProduct =document.createElement('td');
+        celluleValueOfProduct.textContent='price';
+        newtr.appendChild(celluleValueOfProduct);
+
+        let celluleTotalprice =document.createElement('td');
+        celluleTotalprice.textContent=element.Totalprice;
+        newtr.appendChild(celluleTotalprice);
+        tbody.appendChild('tr')
+    })
+    };
+        
+    </script>
+
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>
